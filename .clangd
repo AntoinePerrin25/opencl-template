@@ -1,0 +1,22 @@
+CompileFlags:
+  Add:
+    - -DNOMINMAX
+    - -ID:/Logiciels/Perso/opencl/include
+    - -ID:/Logiciels/Perso/opencl/third_party/OpenCL-Headers
+
+---
+If:
+  PathMatch: .*\.(cpp|hpp|cc|cxx|hh|hxx)$
+CompileFlags:
+  Add:
+    - -std=c++20
+
+---
+If:
+  PathMatch: .*\.c$
+CompileFlags:
+  Remove:
+    - -std=c++*
+    - -std=gnu++*
+  Add:
+    - -std=c99
